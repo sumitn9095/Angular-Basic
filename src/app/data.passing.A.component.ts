@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getMaxListeners } from 'cluster';
+import { Iprofilestructure } from './Iprofilestructure';
 
 @Component({
     selector: "data-a",
@@ -7,21 +7,15 @@ import { getMaxListeners } from 'cluster';
         <div>
             <h4>A component</h4>
             <div>
-                <data-b [profileData]=profiles (Event)="pushToProfiles($event)"></data-b>
+                <data-b [profileData]=profilesq (Event)="pushToProfiles($event)"></data-b>
             </div>
         </div>
     `,
 })
 
-
-interface ProfilesStructure {
-    [index: number]:  { name: string; age: number; email: string }
-}
-
-
 export class DataPassingA {
 
-    public profiles : ProfilesStructure  = [
+    public profilesq: Iprofilestructure  = [
         {
             name: "aaa",
             age: 23,
@@ -38,10 +32,13 @@ export class DataPassingA {
             email: "sw@gmail.com"
         }
     ]
+
     constructor(){}
 
     pushToProfiles(data){
-        //this.profiles.push(data);
-        //console.log(data);
+        //this.profilesq.push(data);
+        //this.profilesq.push({ name:"df", age: 34, email: "swe@gmail.com"});
+        this.profilesq.push({ name:data.name, age:data.age, email:data.email, kmd:"rrtrt"});
+        console.log(this.profilesq);
     }
 }
