@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Iprofilestructure } from './Iprofilestructure';
 
 @Component({
     selector: "data-b",
@@ -21,20 +22,18 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 })
 
 export class DataPassingB {
-    @Input() public profileData: any[];
-    @Output() Event = new EventEmitter;
+    @Input() public profileData: Iprofilestructure[];
+    @Output() Event = new EventEmitter<Iprofilestructure>();
 
     constructor(){}
 
     passData(name,age,email){
         //console.log(name.value);
-
-        var formData = {
+        var formData: Iprofilestructure = {
             name: name.value,
             age: age.value,
-            email: email.value,
+            email: email.value
         }
-
         this.Event.emit(formData);
     }
 

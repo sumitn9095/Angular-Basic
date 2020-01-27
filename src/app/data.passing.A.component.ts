@@ -15,7 +15,7 @@ import { Iprofilestructure } from './Iprofilestructure';
 
 export class DataPassingA {
 
-    public profilesq: Iprofilestructure  = [
+    public profilesq: Iprofilestructure[]  = [
         {
             name: "aaa",
             age: 23,
@@ -35,10 +35,10 @@ export class DataPassingA {
 
     constructor(){}
 
-    pushToProfiles(data){
+    pushToProfiles(data: Iprofilestructure){
         //this.profilesq.push(data);
         //this.profilesq.push({ name:"df", age: 34, email: "swe@gmail.com"});
-        this.profilesq.push({ name:data.name, age:data.age, email:data.email, kmd:"rrtrt"});
+        this.profilesq.push(data);
         console.log(this.profilesq);
     }
 }
